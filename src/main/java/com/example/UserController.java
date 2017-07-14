@@ -1,7 +1,11 @@
 package com.example;
 
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +15,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+
 
     @RequestMapping(value = "user/add", method = RequestMethod.POST)
     public void addUser(@RequestBody User user){
