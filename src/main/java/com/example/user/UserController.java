@@ -1,11 +1,6 @@
-package com.example;
-
-
-
+package com.example.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,19 +11,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
-
-    @RequestMapping(value = "user/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public void addUser(@RequestBody User user){
         userService.addUser(user);
     }
 
-    @RequestMapping("user/users")
+    @RequestMapping("users")
     public List<User> getAllUsers(){
         return  userService.getAllUsers();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/users/{username}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{username}")
     public void  deleteUser(@PathVariable String username){
          userService.deleteUser(username);
     }
