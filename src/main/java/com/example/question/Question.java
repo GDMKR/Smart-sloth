@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
@@ -20,15 +19,14 @@ public class Question {
     private String content;
 
     @NotEmpty
-    private String firstResponse;
+    private String firstCase;
     @NotEmpty
-    private String secondResponse;
+    private String secondCase;
     @NotEmpty
-    private String thirdResponse;
+    private String thirdCase;
     @NotEmpty
-    private String fourthResponse;
+    private String fourthCase;
 
-    @NotEmpty
-    private byte indexOfCorrectResponse;
+    private int indexOfCorrectCase;
 
 }
