@@ -34,10 +34,7 @@ public class User {
     @Column(name = "confirm_code")
     private String confirmCode;
 
-//    @Column(name = "role", nullable = false)
-//    @Enumerated(EnumType.STRING)
-//
-//    private Role role;
+
 
 
 }

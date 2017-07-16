@@ -3,10 +3,9 @@ package com.example.question;
 import com.example.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.AccessType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by fifa13 on 15.07.2017.
@@ -18,8 +17,13 @@ public class QuestionController {
     @Autowired
     QuestionService questionService;
 
-    @RequestMapping(value = "question/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/question/add", method = RequestMethod.POST)
     public void addUser(@RequestBody Question question){
         questionService.addQuestion(question);
+    }
+
+    @RequestMapping("/question/{numberOfQuestions}")
+    public List<Question> getQuestion(@PathVariable Long numberOfQuestions){
+        return questionService.getRandomQuestions(numberOfQuestions);
     }
 }
